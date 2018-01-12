@@ -5,8 +5,8 @@ import StockViewerTable from './StockViewerTable';
 
 const StockViewer = ({stocks}) => {
   return (
-    <div className="row main-row">
-      <div id="stock_viewer_container" className="col-md-4">
+    <div className="container">
+      <div id="stock_viewer_container">
         <div id="stock_viewer_header">
           <h3> Stocks </h3>
           <label>Filter</label>

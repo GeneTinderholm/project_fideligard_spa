@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 
@@ -15,11 +15,12 @@ import {
   insertStocks,
   replaceDisplayStocks,
 } from './actions';
+import {BrowserRouter} from 'react-router-dom';
 
 let initialState = {
-  insertStocks: {datatable: {data: []}, displayStocks: []},
+  insertStocks: [],
   userData: {account: {balance: 300000, stocks: {}}, transactions: []},
-  dateFilter: '',
+  date: new Date().toISOString().substring(0,10)
 };
 let store = createStore(
   stockApp,
@@ -29,7 +30,9 @@ let store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 );

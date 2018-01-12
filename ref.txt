@@ -1,0 +1,7 @@
+
+0 : "Date"
+1 : "Open"
+2 : "High"
+3 : "Low"
+4 : "Close"
+5 : "Volume"

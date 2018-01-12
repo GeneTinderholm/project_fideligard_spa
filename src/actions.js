@@ -1,8 +1,9 @@
 export const SELL = "SELL";
 export const BUY = "BUY";
-export const SET_DATE_FILTER = "SET_DATE_FILTER";
+export const CHANGE_DATE = "CHANGE_DATE";
 export const CHANGE_DISPLAY_STOCKS = "CHANGE_DISPLAY_STOCKS";
 export const INSERT_STOCKS = "INSERT_STOCKS";
+export const CLEAR_STOCKS = "CLEAR_STOCKS";
 
 // ---------------------------------------------------------
 // Thunks 
@@ -27,10 +28,22 @@ export const INSERT_STOCKS = "INSERT_STOCKS";
 // Actions 
 // 2018-01-05 14:04
 // ---------------------------------------------------------
-
-export const setDateFilter = data => {
+export const changeDisplayStocks = data => {
   return {
-    type: SET_DATE_FILTER,
+    type: CHANGE_DISPLAY_STOCKS,
+    data
+  }
+}
+
+export const clearStocks = () => {
+  return {
+    type: CLEAR_STOCKS
+  }
+}
+
+export const changeDate = data => {
+  return {
+    type: CHANGE_DATE,
     data
   };
 };

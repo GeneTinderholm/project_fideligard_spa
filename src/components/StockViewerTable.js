@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import {Link} from 'react-router-dom';
 
 const StockViewerTable = ({stocks}) => {
   return (
-    <div id="stock_viewer_table">
+    <div id="stock_viewer_table" className="container">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -17,15 +18,15 @@ const StockViewerTable = ({stocks}) => {
           </tr>
         </thead>
         <tbody>
-          {stocks.data.map(stock => {
+          {stocks.map(stock => {
             return (
-              <tr>
-                <td>{stock[0]}</td>
-                <td>{stock[3]}</td>
-                <td>{stock[2]}</td>
-                <td>{stock[3]}</td>
-                <td>{stock[4]}</td>
-                <td></td>
+              <tr key={stock.ticker}>
+                <td>{stock.ticker}</td>
+                <td>{stock.values[0]}</td>
+                <td>{(stock.values[1] - stock.values[0]).toPrecision(3)}</td>
+                <td>{(stock.values[2] - stock.values[0]).toPrecision(3)}</td>
+                <td>{(stock.values[3] - stock.values[0]).toPrecision(3)}</td>
+                <td><Link to={`/trade/${stock.ticker}`}>Trade</Link></td>
               </tr>
             );
           })}

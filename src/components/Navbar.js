@@ -1,23 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "../stratton_oakmont.png";
+import {NavLink} from 'react-router-dom';
 
-
-const NavbarItem = ({section, active}) => {
-  let activeState = '';
-
-  if (active) {
-    activeState = 'active';
-  }
-
-  return (
-    <li className={`nav-item ${activeState}`}>
-      <a className="nav-link" href={`#${section.title}`}>
-        { section.title }
-      </a>
-    </li>
-  );
-};
 
 const Navbar = ({sections, colorStyle}) => {
   return (
@@ -37,10 +22,12 @@ const Navbar = ({sections, colorStyle}) => {
       </a>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
-          <NavbarItem section={{title:'Home'}} active={true} />
-          {sections.map(section => {
-            return <NavbarItem section={section} />;
-          })}
+      <NavLink className="nav-link" to='/'>
+        Home
+      </NavLink>
+      <NavLink className="nav-link" to='/trade'>
+        Trade
+      </NavLink>
         </ul>
       </div>
     </nav>
